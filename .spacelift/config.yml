@@ -1,3 +1,13 @@
-module_version: 0.1.0
-runner_image: quay.io/spacelift/runner:latest
-terraform_versions: ["0.12.7", "0.13.0"]
+module_version: 0.1.1
+
+tests:
+    - name: Test the module with 0.12.7
+      terraform_version: 0.12.7
+      environment:
+        TF_VAR_bacon: tasty
+
+    - name: Test the submodule with 0.13.0
+      project_root: submodule
+      terraform_version: 0.13.0
+      environment:
+        TF_VAR_cabbage: awful
